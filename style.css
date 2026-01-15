@@ -1,0 +1,65 @@
+:root {
+  --light-blue: #DFF8F8;
+  --light-brown: #BA9D8C;
+  --light-orange: #FAAB7D;
+  --other-blue: #89A5A5;
+  --other-brown: #7A6B62;
+  --dark-blue: #335050;
+  --test-change-orange: #3CA69D;
+
+}
+
+body {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 0;
+  height: 100vh;
+  background-color: var(--light-blue);
+}
+
+.container {
+  border: 2px solid var(--other-blue);
+  padding: 75px; 
+}
+
+h1 {
+  color: var(--dark-blue);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--dark-blue);
+  background-color: transparent;
+}
+
+input::placeholder{
+  color: var(--dark-blue);
+}
+
+.card {
+  text-align: right;
+  color: var(--dark-blue);
+}
+
+.temperatura {
+  text-align: center;
+  font-size: 50px;
+  color: var(--dark-blue)
+}
+
+.infos {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  color: var(--dark-blue)
+}
