@@ -2,6 +2,7 @@
   --light-blue: #CDF4FB;  
   --other-blue: #89A5A5;
   --dark-blue: #335050;
+  --strong-blue: #2168fc;
 }
 
 body {
@@ -37,7 +38,7 @@ input {
 }
 
 input::placeholder{
-  color: var(--dark-blue);
+  color: var(--other-blue);
 }
 
 .card {
@@ -56,5 +57,12 @@ input::placeholder{
   display: flex;
   flex-direction: row;
   gap: 50px;
+}
+
+.itemTitle {
+  color: var(--strong-blue);
+}
+
+.itemValue {
   color: var(--dark-blue)
 }
