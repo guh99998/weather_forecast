@@ -1,12 +1,7 @@
 :root {
-  --light-blue: #DFF8F8;
-  --light-brown: #BA9D8C;
-  --light-orange: #FAAB7D;
+  --light-blue: #CDF4FB;  
   --other-blue: #89A5A5;
-  --other-brown: #7A6B62;
   --dark-blue: #335050;
-  --test-change-orange: #3CA69D;
-
 }
 
 body {
