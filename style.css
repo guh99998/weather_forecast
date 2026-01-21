@@ -24,6 +24,30 @@ body {
   padding: 75px; 
 }
 
+.searchButton {
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid var(--dark-blue);
+  width: 40%;
+  color: var(--dark-blue);
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.searchButton:hover {
+  transform: scale(1.05);
+}
+
+.searchButton:active {
+  transform: scale(0.95);
+}
+
 h1 {
   color: var(--dark-blue);
   text-align: center;
