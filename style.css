@@ -21,7 +21,7 @@ body {
 
 .container {
   border: 2px solid var(--other-blue);
-  padding: 75px; 
+  padding: 70px; 
 }
 
 .searchButton {
@@ -58,7 +58,7 @@ h1 {
 
 input {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 45px;
   outline: none;
   font-size: 1rem;
   border-radius: 5px;
@@ -80,6 +80,10 @@ input::placeholder{
   text-align: center;
   font-size: 5.2rem;
   color: var(--dark-blue)
+}
+
+.temperatura p{
+  margin: 0;
 }
 
 .infos {
