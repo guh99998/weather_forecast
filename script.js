@@ -1,4 +1,4 @@
-const endpoint = "https://api.hgbrasil.com/weather?key=";
+const endpoint = "https://api.hgbrasil.com/weather?format=json-cors&key=";
 const apiKey = "b94f2b54";
 
 const umidade = document.getElementById("umidade");
@@ -6,7 +6,7 @@ const ventos = document.getElementById("ventos");
 const nascerDoSOl = document.getElementById("nascerDoSol");
 const porDoSol = document.getElementById("porDoSol");
 const chanceDeChuva = document.getElementById("chanceDeChuva");
-const temperatura = document.getElementById("temperatura")
+const temperatura = document.getElementById("temperatura");
 
 const city = document.getElementById("city");
 const dateTime = document.getElementById("dateTime"); 
@@ -24,7 +24,7 @@ button.addEventListener("click", () => {
   fetch(url)
   .then(response => response.json())
   .then(dados => {
-    temperatura.textContent = dados.results.temp;
+    temperatura.textContent = dados.results.temp + " °C";
 
     city.textContent = dados.results.city;
 
@@ -40,6 +40,6 @@ button.addEventListener("click", () => {
 
     porDoSol.textContent = dados.results.sunset;
 
-    chanceDeChuva.textContent = dados.results.rain;
+    chanceDeChuva.textContent = dados.results.forecast[0].rain + "%";
   })
 })
