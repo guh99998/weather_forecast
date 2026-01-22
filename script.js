@@ -3,7 +3,7 @@ const apiKey = "b94f2b54";
 
 const umidade = document.getElementById("umidade");
 const ventos = document.getElementById("ventos");
-const nascerDoSOl = document.getElementById("nascerDoSol");
+const nascerDoSol = document.getElementById("nascerDoSol");
 const porDoSol = document.getElementById("porDoSol");
 const chanceDeChuva = document.getElementById("chanceDeChuva");
 const temperatura = document.getElementById("temperatura");
@@ -36,7 +36,7 @@ button.addEventListener("click", () => {
 
     ventos.textContent = dados.results.wind_speedy;
 
-    nascerDoSOl.textContent = dados.results.sunrise;
+    nascerDoSol.textContent = dados.results.sunrise;
 
     porDoSol.textContent = dados.results.sunset;
 
