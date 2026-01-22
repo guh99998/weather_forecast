@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 :root {
-  --light-blue: #CDF4FB;  
-  --other-blue: #89A5A5;
-  --dark-blue: #335050;
-  --strong-blue: #2168fc;
+  --blue-background: #EAF6FB;
+  --blue-container: #D6EEF7;
+  --blue-main-text: #2F3E46;
+  --blue-title-text: #1D6FA3;
+  --background-border: #A9D6E5;
+  --hover-button: #89C2D9;
+  --blue-temperatura: #1B4965;
+  --blue-border-button: #62B6CB;
 }
 
 body {
@@ -16,11 +20,12 @@ body {
   text-decoration: none;
   margin: 0;
   height: 100vh;
-  background-color: var(--light-blue);
+  background-color: var(--blue-background);
 }
 
 .container {
-  border: 2px solid var(--other-blue);
+  background: var(--blue-container);
+  border: 2px solid var(--background-border);
   padding: 70px; 
 }
 
@@ -29,9 +34,9 @@ body {
   margin: 0 auto;
   padding: 15px;
   border-radius: 5px;
-  border: 1px solid var(--dark-blue);
+  border: 1px solid var(--background-border);
   width: 40%;
-  color: var(--dark-blue);
+  color: var(--blue-temperatura);
   background-color: transparent;
   cursor: pointer;
   font-family: "Patrick Hand", cursive;
@@ -41,6 +46,7 @@ body {
 }
 
 .searchButton:hover {
+  background: var(--hover-button);
   transform: scale(1.05);
 }
 
@@ -49,7 +55,7 @@ body {
 }
 
 h1 {
-  color: var(--dark-blue);
+  color: var(--blue-title-text);
   text-align: center;
   margin-bottom: 50px;
   font-size: 3rem;
@@ -62,24 +68,24 @@ input {
   outline: none;
   font-size: 1rem;
   border-radius: 5px;
-  border: 1px solid var(--dark-blue);
+  border: 1px solid var(--blue-border-button);
   background-color: transparent;
 }
 
 input::placeholder{
-  color: var(--other-blue);
+  color: var(--blue-main-text);
 }
 
 .card {
   text-align: right;
-  color: var(--dark-blue);
+  color: var(--blue-main-text);
   font-size: 1.5rem;
 }
 
 .temperatura {
   text-align: center;
   font-size: 5.2rem;
-  color: var(--dark-blue)
+  color: var(--blue-main-text)
 }
 
 .temperatura p{
@@ -95,9 +101,9 @@ input::placeholder{
 }
 
 .itemTitle {
-  color: var(--strong-blue);
+  color: var(--blue-title-text);
 }
 
 .itemValue {
-  color: var(--dark-blue)
+  color: var(--blue-main-text)
 }
