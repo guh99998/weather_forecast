@@ -1,45 +1,78 @@
-const endpoint = "https://api.hgbrasil.com/weather?format=json-cors&key=";
+const endpoint = "https://api.hgbrasil.com/weather";
 const apiKey = "b94f2b54";
 
-const umidade = document.getElementById("umidade");
-const ventos = document.getElementById("ventos");
-const nascerDoSol = document.getElementById("nascerDoSol");
-const porDoSol = document.getElementById("porDoSol");
-const chanceDeChuva = document.getElementById("chanceDeChuva");
-const temperatura = document.getElementById("temperatura");
+const els = {
+  form: document.getElementById("searchForm"),
+  input: document.getElementById("inputLocal"),
+  button: document.getElementById("searchButton"),
 
-const city = document.getElementById("city");
-const dateTime = document.getElementById("dateTime"); 
-const descricao = document.getElementById("descricao");
+  temperatura: document.getElementById("temperatura"),
+  city: document.getElementById("city"),
+  dateTime: document.getElementById("dateTime"),
+  descricao: document.getElementById("descricao"),
 
-const input = document.getElementById("inputLocal");
-const button = document.getElementById("searchButton");
+  umidade: document.getElementById("umidade"),
+  ventos: document.getElementById("ventos"),
+  nascerDoSol: document.getElementById("nascerDoSol"),
+  porDoSol: document.getElementById("porDoSol"),
+  chanceDeChuva: document.getElementById("chanceDeChuva"),
+};
 
+function setLoading(isLoading) {
+  els.button.disabled = isLoading;
+  els.button.textContent = isLoading ? "Carregando..." : "Pesquisar";
+}
 
-button.addEventListener("click", () => {
-  let cityName = input.value;
+function renderWeather(results) {
+  els.temperatura.textContent = `${results.temp} °C`;
+  els.city.textContent = results.city;
+  els.dateTime.textContent = results.date;
+  els.descricao.textContent = results.description;
 
-  let url = endpoint + apiKey + "&city_name="+ cityName;
+  els.umidade.textContent = results.humidity;
+  els.ventos.textContent = results.wind_speedy;
+  els.nascerDoSol.textContent = results.sunrise;
+  els.porDoSol.textContent = results.sunset;
 
-  fetch(url)
-  .then(response => response.json())
-  .then(dados => {
-    temperatura.textContent = dados.results.temp + " °C";
+  const rain = results?.forecast?.[0]?.rain ?? 0;
+  els.chanceDeChuva.textContent = `${rain}%`;
+}
 
-    city.textContent = dados.results.city;
+async function fetchWeather(cityName) {
+  const params = new URLSearchParams({
+    format: "json-cors",
+    key: apiKey,
+    city_name: cityName,
+  });
 
-    dateTime.textContent = dados.results.date;
+  const url = `${endpoint}?${params.toString()}`;
 
-    descricao.textContent = dados.results.description;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Falha ao buscar dados da API.");
 
-    umidade.textContent = dados.results.humidity;
+  const data = await response.json();
+  if (!data?.results) throw new Error("Resposta inválida da API.");
 
-    ventos.textContent = dados.results.wind_speedy;
+  return data.results;
+}
 
-    nascerDoSol.textContent = dados.results.sunrise;
+els.form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    porDoSol.textContent = dados.results.sunset;
+  const cityName = els.input.value.trim();
+  if (!cityName) {
+    els.input.focus();
+    return;
+  }
 
-    chanceDeChuva.textContent = dados.results.forecast[0].rain + "%";
-  })
-})
+  try {
+    setLoading(true);
+    const results = await fetchWeather(cityName);
+    renderWeather(results);
+  } catch (err) {
+    console.error(err);
+    els.descricao.textContent = "Não consegui buscar a previsão. Tente novamente.";
+  } finally {
+    setLoading(false);
+  }
+});

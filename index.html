@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Previsão do Tempo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <h1>Previsão do Tempo</h1>
-    <input type="text" id="inputLocal" placeholder="São Paulo, SP">
-    <button id="searchButton" class="searchButton">Pesquisar</button>
+  <main class="app">
+    <section class="panel" aria-label="Aplicativo de previsão do tempo">
+      <h1 class="title">Previsão do Tempo</h1>
 
-    <div class="card">
-      <p id="city">São Paulo, SP</p>
-      <p id="dateTime">21/01/2026</p>    
-      <p id="descricao">Tempo Nublado</p>
-    </div>
+      <form class="search" id="searchForm">
+        <label class="sr-only" for="inputLocal">Cidade</label>
+        <input type="text" id="inputLocal" placeholder="São Paulo, SP" />
+        <button type="submit" id="searchButton" class="btn">Pesquisar</button>
+      </form>
 
-    <div class="temperatura">
-      <p id="temperatura">26 °C</p>
-    </div>
+      <div class="meta">
+        <p id="city" class="meta__city">São Paulo, SP</p>
+        <p id="dateTime" class="meta__date">21/01/2026</p>
+        <p id="descricao" class="meta__desc">Tempo Nublado</p>
+      </div>
 
-    <div class="infos">
-      <div class="item">
-        <p class="itemTitle">Umidade</p>
-        <p id="umidade" class="itemValue">81</p>
+      <p id="temperatura" class="temp">26 °C</p>
+
+      <div class="stats">
+        <div class="stat">
+          <p class="stat__label">Umidade</p>
+          <p id="umidade" class="stat__value">81</p>
+        </div>
+
+        <div class="stat">
+          <p class="stat__label">Ventos</p>
+          <p id="ventos" class="stat__value">5.14 km/h</p>
+        </div>
+
+        <div class="stat">
+          <p class="stat__label">Nascer do Sol</p>
+          <p id="nascerDoSol" class="stat__value">06:37 am</p>
+        </div>
+
+        <div class="stat">
+          <p class="stat__label">Pôr do Sol</p>
+          <p id="porDoSol" class="stat__value">06:57 pm</p>
+        </div>
+
+        <div class="stat">
+          <p class="stat__label">Chance de chuva</p>
+          <p id="chanceDeChuva" class="stat__value">0%</p>
+        </div>
       </div>
-      <div class="item">
-        <p class="itemTitle">Ventos</p>
-        <p id="ventos" class="itemValue">5.14 km/h</p>
-      </div>
-      <div class="item">
-        <p class="itemTitle">Nascer do Sol</p>
-        <p id="nascerDoSol" class="itemValue">06:37 am</p>
-      </div>
-      <div class="item">
-        <p class="itemTitle">Pôr do Sol</p>
-        <p id="porDoSol" class="itemValue">06:57 pm</p>
-      </div>
-      <div class="item">
-        <p class="itemTitle">Chance de chuva</p>
-        <p id="chanceDeChuva" class="itemValue">0%</p>
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
